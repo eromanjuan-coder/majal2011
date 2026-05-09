@@ -21,9 +21,9 @@ function renderGallery(page) {
         const card = document.createElement('div');
         card.className = 'img-card';
         card.innerHTML = `
-            <img src="majal/${i}.jpg" alt="Img ${i}" onclick="openLightbox(${i})">
+            <img src="${i}.jpg" alt="Img ${i}" onclick="openLightbox(${i})">
             <p>Image #${i}</p>
-            <button onclick="downloadImg('majal/${i}.jpg')">Download</button>
+            <button onclick="downloadImg('${i}.jpg')">Download</button>
         `;
         galleryGrid.appendChild(card);
     }
@@ -48,7 +48,7 @@ themeToggle.addEventListener('change', (e) => {
 // 4. Lightbox (Full Screen) Logic
 function openLightbox(index) {
     currentImgIndex = index;
-    fullImg.src = `majal/${index}.jpg`;
+    fullImg.src = `${index}.jpg`;
     lightbox.style.display = 'flex';
     document.body.style.overflow = 'hidden'; // Stop scrolling background
 }
@@ -57,7 +57,7 @@ function changeImage(step) {
     currentImgIndex += step;
     if (currentImgIndex < 2) currentImgIndex = 240;
     if (currentImgIndex > 240) currentImgIndex = 2;
-    fullImg.src = `majal/${currentImgIndex}.jpg`;
+    fullImg.src = `${currentImgIndex}.jpg`;
 }
 
 closeBtn.onclick = () => {
